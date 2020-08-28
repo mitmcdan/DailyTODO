@@ -70,7 +70,7 @@ html {
     content: "🌮";
   }
 
-  .plates input:checked {
+  .plates input:checked + label {
       text-decoration: line-through;
       color: rgba(73, 73, 73, 0.95);
   }
