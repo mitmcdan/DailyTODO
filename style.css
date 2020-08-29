@@ -71,8 +71,7 @@ html {
   }
 
   .plates input:checked + label {
-      text-decoration: line-through;
-      color: rgba(73, 73, 73, 0.95);
+      color: rgba(104, 104, 104, 0.95);
   }
   
   .add-items {
@@ -89,4 +88,17 @@ html {
     padding: 10px;
     outline: 0;
     border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .trashcan {
+      width:20px;
+      height: 20px;
+  }
+
+  .trashcan .trashcan-open {
+      display: none;
+  }
+
+  .trashcan:hover {
+      display: inline;
   }
