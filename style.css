@@ -58,7 +58,7 @@ html {
   }
   
   .plates input:checked + label:before {
-    content: "🌮";
+    content: "☕";
   }
 
   .plates input:checked + label {
