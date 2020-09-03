@@ -132,17 +132,9 @@
     const dayCountHTML = document.querySelector('#dayCount');
     const dayCount = JSON.parse(dayCountHTML.innerHTML);
 
-    //check to see if there are no tasks or all are completed
-    //Question: how can this if statement and the increment be simplified?
-    let allTasksDone = false;
+    //check to see if there are any uncompleted tasks
+    const allTasksDone = items.filter(item => !item.done);
 
-    items.forEach(item => {
-      if(!item.done) {
-        allTasksDone = false;
-      } else {
-        allTasksDone = true;
-      }
-    });
 
     //get current count from localstorage or init
     let currentDayCount = JSON.parse(localStorage.getItem('currentDayCount')) || [];
