@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <title>Daily TODO</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="">
+  <!-- Favicon Links  -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
 </head>
 <body>
   <!--
@@ -33,7 +36,11 @@
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
+  //grab localstorage list or init for both lists
   let items = JSON.parse(localStorage.getItem('items')) || [];
+  let workItems = JSON.parse(localStorage.getItem('workItems')) || [];
+
+  //TODO: Seperate lists out into Home and Work lists
 
   function addItem(e) {
     //stop page refresh
