@@ -17,7 +17,7 @@
   <div class="wrapper">
     <h2>Daily TODO</h2>
     <div class="dayCounter">
-        Sucessful Days: <span id="dayCount"></span>
+        Sucessful Days: <span id="dayCount">0</span>
     </div>
     <ul class="plates">
       <li>Add New Items...</li>
@@ -100,8 +100,6 @@
 
   //function to reset list to Daily Items
   function dailyReset() {
-    //create a button that runs this function!
-    
     //array with daily tasks
     const dailyItems = [
       {text: 'Make Bed', done: false},
@@ -109,7 +107,8 @@
       {text: 'Clear Dishes', done: false},
       {text: 'Write a Journey Entry', done: false},
       {text: 'Read a Chapter', done: false},
-      {text: 'Stretch & Push Ups', done: false}
+      {text: 'Stretch & Push Ups', done: false},
+      {text: 'Wash Face', done: false}
     ];
     
     //Clear itemsList
@@ -119,13 +118,43 @@
     //   items.push(item);
     // });
 
-        //TODO Track successful days:
-            //Create a counter for each time Complete Day btn is pressed (store in localStorage)
-            //Only incrememnt counter if all items on the list are checked
-            //Display counter on page
+    //increase counter if succussful day
+    //Question: is it best to create a one off function or to add the check into this function?
+    successfulDayCheck();
 
     //Run populateList
     populateList(items, itemsList);
+  }
+
+  //function to track continuous sucessful days (all tasks completed)
+  function successfulDayCheck() {
+    //grab html element for tracking days
+    const dayCountHTML = document.querySelector('#dayCount');
+    const dayCount = JSON.parse(dayCountHTML.innerHTML);
+
+    //check to see if there are no tasks or all are completed
+    //Question: how can this if statement and the increment be simplified?
+    let allTasksDone = false;
+
+    items.forEach(item => {
+      if(!item.done) {
+        allTasksDone = false;
+      } else {
+        allTasksDone = true;
+      }
+    });
+
+    //get current count from localstorage or init
+    let currentDayCount = JSON.parse(localStorage.getItem('currentDayCount')) || [];
+
+    //increment counter element if all completed
+    if(allTasksDone) {
+      currentDayCount = dayCount++;
+    }
+
+    //save dayCount value to localStorage
+    localStorage.setItem('currentDayCount', JSON.stringify(currentDayCount));
+
   }
 
   //NOTE: event delegation is the idea of responsible parents and negligent children
