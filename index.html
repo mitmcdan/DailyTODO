@@ -5,11 +5,10 @@
   <title>Daily TODO</title>
   <link rel="stylesheet" href="style.css">
   <!-- Favicon Links  -->
-  <!-- <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
-  <link rel="manifest" href="/favicon_io/site.webmanifest"> -->
-  <link rel="icon" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
 </head>
 <body>
   <!--
@@ -138,8 +137,8 @@
   //function to track continuous sucessful days (all tasks completed)
   function successfulDayCheck() {
     //grab html element for tracking days
-    const dayCountHTML = document.querySelector('#dayCount');
-    const dayCount = JSON.parse(dayCountHTML.innerHTML);
+    let dayCountHTML = document.querySelector('#dayCount');
+    let dayCount = JSON.parse(dayCountHTML.innerHTML);
 
     //check to see if there are any uncompleted tasks
     const allTasksDone = items.filter(item => !item.done);
