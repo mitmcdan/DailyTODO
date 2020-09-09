@@ -40,6 +40,8 @@
   //grab localstorage list or init for both lists
   let items = JSON.parse(localStorage.getItem('items')) || [];
 
+  //get current count from localstorage or init
+  let currentDayCount = JSON.parse(localStorage.getItem('currentDayCount')) || 0;
   //set html counter
   document.getElementById('dayCount').innerHTML = currentDayCount;
 
@@ -140,9 +142,6 @@
   function successfulDayCheck() {
     //check to see if there are any uncompleted tasks
     const allTasksDone = items.filter(item => !item.done);
-
-    //get current count from localstorage or init
-    let currentDayCount = JSON.parse(localStorage.getItem('currentDayCount')) || 0;
 
     //increment counter element if all completed
     if(allTasksDone.length == 0) {
