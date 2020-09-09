@@ -119,16 +119,16 @@
       {text: 'Wash Face', done: false}
     ];
     
+    //increase counter if succussful day
+    //Question: is it best to create a one off function or to add the check into this function?
+    successfulDayCheck();
+
     //Clear itemsList
     items = dailyItems;
     //Loop over array and add each item to list
     // dailyItems.forEach(item => {
     //   items.push(item);
     // });
-
-    //increase counter if succussful day
-    //Question: is it best to create a one off function or to add the check into this function?
-    successfulDayCheck();
 
     //Run populateList
     populateList(items, itemsList);
@@ -148,7 +148,8 @@
     let currentDayCount = JSON.parse(localStorage.getItem('currentDayCount')) || [];
 
     //increment counter element if all completed
-    if(allTasksDone) {
+    if(allTasksDone.length = 0) {
+      currentDayCount = dayCount ++;
       console.log(allTasksDone);
       console.log(currentDayCount);
       console.log(dayCount);
