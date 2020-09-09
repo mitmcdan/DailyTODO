@@ -137,8 +137,8 @@
   //function to track continuous sucessful days (all tasks completed)
   function successfulDayCheck() {
     //grab html element for tracking days
-    let dayCountHTML = document.querySelector('#dayCount');
-    let dayCount = JSON.parse(dayCountHTML.innerHTML);
+    //let dayCountHTML = document.querySelector('#dayCount');
+    //let dayCount = JSON.parse(dayCountHTML.innerHTML);
 
     //check to see if there are any uncompleted tasks
     const allTasksDone = items.filter(item => !item.done);
@@ -149,7 +149,7 @@
     //increment counter element if all completed
     if(allTasksDone.length == 0) {
       currentDayCount = parseInt(currentDayCount) + 1;
-      dayCountHTML.innerHTML = dayCount + 1;
+      //dayCountHTML.innerHTML = dayCount + 1;
     } else {
       console.log('non successful day');
     }
@@ -157,6 +157,8 @@
     //save dayCount value to localStorage
     localStorage.setItem('currentDayCount', JSON.stringify(currentDayCount));
 
+    //set html counter
+    document.getElementById('dayCount').innerHTML = currentDayCount;
   }
 
   //NOTE: event delegation is the idea of responsible parents and negligent children
