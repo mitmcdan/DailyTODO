@@ -147,13 +147,14 @@
     //get current count from localstorage or init
     let currentDayCount = JSON.parse(localStorage.getItem('currentDayCount')) || [];
 
+    console.log(allTasksDone);
+    console.log(currentDayCount);
+    console.log(dayCount);
+    console.log(dayCountHTML);
+
     //increment counter element if all completed
     if(allTasksDone.length = 0) {
       currentDayCount = dayCount ++;
-      console.log(allTasksDone);
-      console.log(currentDayCount);
-      console.log(dayCount);
-      console.log(dayCountHTML);
     } else {
       console.log('non successful day');
     }
